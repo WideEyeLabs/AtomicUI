@@ -1,0 +1,17 @@
+PODS:
+  - AtomicUI (1.0.4):
+    - Masonry
+  - Masonry (0.2.3)
+
+DEPENDENCIES:
+  - AtomicUI (from `../../`)
+
+EXTERNAL SOURCES:
+  AtomicUI:
+    :path: ../../
+
+SPEC CHECKSUMS:
+  AtomicUI: 21e9cb3cc24728ad1fff34d850edb5af203a5720
+  Masonry: 6ab455cddc0a29be3eebdca923d75207efe99664
+
+COCOAPODS: 0.23.0
