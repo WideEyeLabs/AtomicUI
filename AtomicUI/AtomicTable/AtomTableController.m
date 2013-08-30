@@ -71,21 +71,19 @@
     if (!cell)
     {
         cell = [_dataSource cellForIdentifier:row.cellIdentifier];
+        if (!cell)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"subtitleCell"];
+        }
     }
     
-    if (!cell)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"subtitleCell"];
-        cell.textLabel.text = row.text;
-        cell.textLabel.backgroundColor = [UIColor clearColor];
-        cell.detailTextLabel.text = row.subText;
-        cell.detailTextLabel.backgroundColor = [UIColor clearColor];
-        cell.contentView.backgroundColor = row.backgroundColor;
-    }
-    else
-    {
-        [_dataSource customizeCell:cell withCellViews:row.cellViews];
-    }
+    cell.textLabel.text = row.text;
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.detailTextLabel.text = row.subText;
+    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = row.backgroundColor;
+    
+    [_dataSource customizeCell:cell withCellViews:row.cellViews];
     
     return cell;
 }

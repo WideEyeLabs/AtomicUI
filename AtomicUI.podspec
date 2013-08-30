@@ -3,9 +3,9 @@ Pod::Spec.new do |s|
   s.version  = '1.0.0'
   s.license  = 'MIT'
   s.summary  = 'AtomicUI provides easy to use interfaces elements in order to make the creation of mockups and simple applications fast and easy.'
-  s.homepage = 'https://code.kahdu.org/brian-s-projects/atomicui.git'
+  s.homepage = 'https://github.com/WideEyeLabs/AtomicUI'
   s.authors  = {'Brian Thomas' => 'brian@wideeyelabs.com'}
-  s.source   = { :git => 'https://code.kahdu.org/brian-s-projects/atomicui.git', :tag => '1.0.0'}
+  s.source   = { :git => 'https://github.com/WideEyeLabs/AtomicUI.git', :tag => '1.0.0'}
   s.source_files = 'AtomicUI', 'AtomicUI/AtomicSlide', 'AtomicUI/AtomicTable'
   s.requires_arc = true
   s.dependency 'Masonry', '0.2.3'
