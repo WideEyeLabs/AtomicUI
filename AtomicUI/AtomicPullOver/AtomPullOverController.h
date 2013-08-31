@@ -10,4 +10,6 @@
 
 @interface AtomPullOverController : UIViewController
 
+- (id)initWithPullOverController:(UIViewController *)pullOver andRootController:(UIViewController *)rootController withContentWidth:(NSNumber *)width;
+
 @end

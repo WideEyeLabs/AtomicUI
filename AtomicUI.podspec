@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/WideEyeLabs/AtomicUI'
   s.authors  = {'Brian Thomas' => 'brian@wideeyelabs.com'}
   s.source   = { :git => 'https://github.com/WideEyeLabs/AtomicUI.git', :tag => '1.0.0'}
-  s.source_files = 'AtomicUI', 'AtomicUI/AtomicSlide', 'AtomicUI/AtomicTable'
+  s.source_files = 'AtomicUI', 'AtomicUI/AtomicSlide', 'AtomicUI/AtomicTable', 'AtomicUI/AtomicPullOver'
   s.requires_arc = true
   s.dependency 'Masonry', '0.2.3'
 
