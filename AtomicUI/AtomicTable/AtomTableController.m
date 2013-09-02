@@ -34,6 +34,8 @@
 {
     [super viewDidLoad];
     _tableData = [_dataSource tableDataForTable:self];
+    self.tableView.separatorStyle = _tableData.seperatorStyle;
+    self.tableView.separatorColor = _tableData.seperatorColor;
     self.tableView.tableHeaderView = _tableData.headerView;
     self.tableView.tableFooterView = _tableData.footerView;
     self.tableView.backgroundColor = _tableData.backgroundColor;

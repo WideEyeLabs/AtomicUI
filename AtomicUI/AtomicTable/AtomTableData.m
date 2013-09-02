@@ -19,6 +19,8 @@
         _backgroundView = backgroundView;
         _headerView = header;
         _footerView = footer;
+        _seperatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        _seperatorColor = [UIColor lightGrayColor];
     }
     
     return self;

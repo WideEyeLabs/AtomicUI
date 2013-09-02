@@ -15,6 +15,8 @@
 @property (strong, nonatomic) UIView *backgroundView;
 @property (strong, nonatomic) UIView *headerView;
 @property (strong, nonatomic) UIView *footerView;
+@property (nonatomic) UITableViewCellSeparatorStyle seperatorStyle;
+@property (nonatomic, strong) UIColor *seperatorColor;
 
 - (id)initWithSections:(NSArray *)sections backgroundColor:(UIColor *)backgroundColor backgroundView:(UIView *)backgroundView headerView:(UIView *)header footerView:(UIView *)footer;
 
