@@ -305,6 +305,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3EF45E121E094D0A8DA05A5D /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AtomSlide/AtomSlide-Prefix.pch";
 				INFOPLIST_FILE = "AtomSlide/AtomSlide-Info.plist";
@@ -317,6 +318,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3EF45E121E094D0A8DA05A5D /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AtomSlide/AtomSlide-Prefix.pch";
 				INFOPLIST_FILE = "AtomSlide/AtomSlide-Info.plist";

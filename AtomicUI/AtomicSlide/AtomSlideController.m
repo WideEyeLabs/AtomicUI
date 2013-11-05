@@ -23,7 +23,6 @@
 @property (nonatomic, strong) UIView *sectionsView;
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) UIView *closeOnTapView;
-@property (nonatomic, strong) UIView *shadowView;
 @property (nonatomic, strong) UIView *indicatorView;
 @property (nonatomic, strong) UIActivityIndicatorView *indicator;
 @property (nonatomic, strong) NSLayoutConstraint *contentViewOffset;
@@ -355,31 +354,7 @@
     _contentViewOffset = constraints[3];
     [self.view layoutIfNeeded];
     
-    [self loadContentShadow];
     [self loadContentCloseOnTapView];
-}
-
-- (void)loadContentShadow
-{
-    UIView *superview = _contentView;
-    _shadowView = [[UIView alloc] init];
-    [_contentView addSubview:_shadowView];
-    [_shadowView setBackgroundColor:[UIColor whiteColor]];
-    
-    [_shadowView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(superview.mas_left).with.offset(0);
-        make.bottom.equalTo(superview.mas_bottom).with.offset(0);
-        make.top.equalTo(superview.mas_top).with.offset(0);
-        make.right.equalTo(superview.mas_right).with.offset(0);
-    }];
-    
-    [_contentView layoutIfNeeded];
-    
-    _shadowView.layer.masksToBounds = NO;
-    _shadowView.layer.shadowColor = [UIColor blackColor].CGColor;
-    _shadowView.layer.shadowRadius = 10.0f;
-    _shadowView.layer.shadowOpacity = 0.75f;
-    _shadowView.layer.shouldRasterize = YES;
 }
 
 - (void)loadContentCloseOnTapView
