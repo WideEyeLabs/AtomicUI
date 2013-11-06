@@ -51,10 +51,8 @@
         {
             case 103:
                 [view setBackgroundColor:[viewDictionary valueForKey:@"backgroundColor"]];
-                return nil;
                 break;
             default:
-                return nil;
                 break;
         }
     }
