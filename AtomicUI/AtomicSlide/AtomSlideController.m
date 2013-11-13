@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIViewController *masterController;
 @property (nonatomic, strong) UIViewController *detailController;
 @property (nonatomic, strong) UIColor *indicatorBackgroundColor;
+@property (nonatomic, strong) UIColor *indicatorBorderColor;
 @property (nonatomic, strong) NSNumber *masterContentWidth;
 @property (nonatomic, strong) NSNumber *slideOpenWidth;
 
@@ -30,7 +31,6 @@
 @property (nonatomic, strong) UIPanGestureRecognizer *panRecognizer;
 
 @property (nonatomic) BOOL isSectionsTableDisplayed;
-@property (nonatomic) BOOL shouldInidicatorRemainActive;
 
 @end
 
@@ -39,17 +39,22 @@
 
 #pragma mark - Initializers
 
-- (id)initWithMaster:(UIViewController *)master andDetail:(UIViewController *)detail
+- (instancetype)initWithMaster:(UIViewController *)master andDetail:(UIViewController *)detail
 {
     return [self initWithMaster:master andDetail:detail withMasterWidth:@270 slideDistance:@260 withIndicatorBackgroundColor:[UIColor blackColor]];
 }
 
-- (id)initWithMaster:(UIViewController *)master andDetail:(UIViewController *)detail withIndicatorBackgroundColor:(UIColor *)backgroundColor
+- (instancetype)initWithMaster:(UIViewController *)master andDetail:(UIViewController *)detail withIndicatorBackgroundColor:(UIColor *)backgroundColor
 {
     return [self initWithMaster:master andDetail:detail withMasterWidth:@280 slideDistance:@260 withIndicatorBackgroundColor:backgroundColor];
 }
 
-- (id)initWithMaster:(UIViewController *)master andDetail:(UIViewController *)detail withMasterWidth:(NSNumber *)masterWidth slideDistance:(NSNumber *)slideDistance withIndicatorBackgroundColor:(UIColor *)backgroundColor
+- (instancetype)initWithMaster:(UIViewController *)master andDetail:(UIViewController *)detail withMasterWidth:(NSNumber *)masterWidth slideDistance:(NSNumber *)slideDistance withIndicatorBackgroundColor:(UIColor *)backgroundColor
+{
+    return [self initWithMaster:master andDetail:detail withMasterWidth:masterWidth slideDistance:slideDistance withIndicatorBackgroundColor:backgroundColor andIndicatorBorderColor:[UIColor blackColor]];
+}
+
+- (instancetype)initWithMaster:(UIViewController *)master andDetail:(UIViewController *)detail withMasterWidth:(NSNumber *)masterWidth slideDistance:(NSNumber *)slideDistance withIndicatorBackgroundColor:(UIColor *)backgroundColor andIndicatorBorderColor:(UIColor *)borderColor
 {
     if (self = [super init])
     {
@@ -58,6 +63,7 @@
         _indicatorBackgroundColor = backgroundColor;
         _masterContentWidth = masterWidth;
         _slideOpenWidth = slideDistance;
+        _indicatorBorderColor = borderColor;
     }
     return self;
 }
@@ -89,15 +95,12 @@
 {
     [self.view bringSubviewToFront:_indicatorView];
     _indicatorView.hidden = NO;
-    if (!_shouldInidicatorRemainActive)
-    {
-        [self runIndicator];
-    }
+    [self fadeIndicatorIn];
 }
 
 - (void)stopIndicator
 {
-    _shouldInidicatorRemainActive = NO;
+    [self animateIndicatorRemoval];
 }
 
 - (void)openSlideBar
@@ -115,42 +118,15 @@
 
 #pragma mark - Indicator Methods
 
-- (void)runIndicator
-{
-    _shouldInidicatorRemainActive = YES;
-    [_indicator startAnimating];
-    [self fadeIndicatorIn];
-}
-
 - (void)fadeIndicatorIn
 {
+    [self.view bringSubviewToFront:_indicatorView];
+    _indicatorView.hidden = NO;
+    [_indicator startAnimating];
     [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         _indicatorView.alpha = 0.9;
     } completion:^(BOOL finished) {
-        if (_shouldInidicatorRemainActive)
-        {
-            [self fadeIndicatorOut];
-        }
-        else
-        {
-            [self animateIndicatorRemoval];
-        }
-    }];
-}
-
-- (void)fadeIndicatorOut
-{
-    [UIView animateWithDuration:0.3 delay:0.4 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        _indicatorView.alpha = 0.5;
-    } completion:^(BOOL finished) {
-        if (_shouldInidicatorRemainActive)
-        {
-            [self fadeIndicatorIn];
-        }
-        else
-        {
-            [self animateIndicatorRemoval];
-        }
+       
     }];
 }
 
@@ -394,11 +370,8 @@
     
     _indicatorView.backgroundColor = self.indicatorBackgroundColor;
     _indicatorView.layer.cornerRadius = 8.0;
-    _indicatorView.layer.borderColor = [UIColor blackColor].CGColor;
+    _indicatorView.layer.borderColor = _indicatorBorderColor.CGColor;
     _indicatorView.layer.borderWidth = 1.0;
-    _indicatorView.layer.shadowColor = [UIColor blackColor].CGColor;
-    _indicatorView.layer.shadowRadius = 8.0;
-    _indicatorView.alpha = 0.9;
     
     [self loadIndicator];
 }

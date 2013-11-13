@@ -7,12 +7,26 @@
 //
 
 #import "AtomViewController.h"
+#import "AtomAppDelegate.h"
+#import <AtomSlideController.h>
 
 @interface AtomViewController ()
 
 @end
 
 @implementation AtomViewController
+
+- (IBAction)startButtonTapped:(id)sender
+{
+    AtomAppDelegate *appDel = [[UIApplication sharedApplication] delegate];
+    [appDel.slide startIndicator];
+}
+
+- (IBAction)stopButtonTapped:(id)sender
+{
+    AtomAppDelegate *appDel = [[UIApplication sharedApplication] delegate];
+    [appDel.slide stopIndicator];
+}
 
 - (void)viewDidLoad
 {

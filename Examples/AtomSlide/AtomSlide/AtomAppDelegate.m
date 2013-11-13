@@ -16,11 +16,11 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[AtomViewController alloc] initWithNibName:@"AtomViewController" bundle:nil];
+    self.viewController = [[AtomViewController alloc] init];
     
-    AtomSlideController *slide = [[AtomSlideController alloc] initWithMaster:[[UIViewController alloc] init] andDetail:[[UINavigationController alloc] initWithRootViewController:[[UIViewController alloc] init]]];
+    _slide = [[AtomSlideController alloc] initWithMaster:[[UIViewController alloc] init] andDetail:[[UINavigationController alloc] initWithRootViewController:self.viewController]];
     
-    self.window.rootViewController = slide;
+    self.window.rootViewController = _slide;
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -13,6 +13,7 @@
 - (id)initWithMaster:(UIViewController *)master andDetail:(UIViewController *)detail;
 - (id)initWithMaster:(UIViewController *)master andDetail:(UIViewController *)detail withIndicatorBackgroundColor:(UIColor *)backgroundColor;
 - (id)initWithMaster:(UIViewController *)master andDetail:(UIViewController *)detail withMasterWidth:(NSNumber *)masterWidth slideDistance:(NSNumber *)slideDistance withIndicatorBackgroundColor:(UIColor *)backgroundColor;
+- (id)initWithMaster:(UIViewController *)master andDetail:(UIViewController *)detail withMasterWidth:(NSNumber *)masterWidth slideDistance:(NSNumber *)slideDistance withIndicatorBackgroundColor:(UIColor *)backgroundColor andIndicatorBorderColor:(UIColor *)borderColor;
 
 - (void)allowsSliding:(BOOL)shouldSlide;
 

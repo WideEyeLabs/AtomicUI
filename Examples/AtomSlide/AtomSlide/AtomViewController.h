@@ -10,4 +10,10 @@
 
 @interface AtomViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UIButton *stopButton;
+
+- (IBAction)startButtonTapped:(id)sender;
+- (IBAction)stopButtonTapped:(id)sender;
+
 @end

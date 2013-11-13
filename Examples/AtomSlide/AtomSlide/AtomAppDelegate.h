@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @class AtomViewController;
+@class AtomSlideController;
 
 @interface AtomAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) AtomViewController *viewController;
+@property (strong, nonatomic) AtomSlideController *slide;
 
 @end
