@@ -19,7 +19,7 @@
 		D3BC51451A7C072800B5A0DB /* AtomicUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3BC51441A7C072800B5A0DB /* AtomicUITests.m */; };
 		D3BC51481A7C072800B5A0DB /* AtomicUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BC51311A7C072800B5A0DB /* AtomicUI.framework */; };
 		D3BC51491A7C072800B5A0DB /* AtomicUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D3BC51311A7C072800B5A0DB /* AtomicUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D3BC51531A7C079100B5A0DB /* AtomSlideController.h in Headers */ = {isa = PBXBuildFile; fileRef = D3BC51511A7C079100B5A0DB /* AtomSlideController.h */; };
+		D3BC51531A7C079100B5A0DB /* AtomSlideController.h in Headers */ = {isa = PBXBuildFile; fileRef = D3BC51511A7C079100B5A0DB /* AtomSlideController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3BC51541A7C079100B5A0DB /* AtomSlideController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3BC51521A7C079100B5A0DB /* AtomSlideController.m */; };
 /* End PBXBuildFile section */
 
