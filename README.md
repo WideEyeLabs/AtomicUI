@@ -1,8 +1,11 @@
-AtomicUI is a simple interface object library built on top of [Masonry](https://github.com/cloudkite/Masonry).
+AtomicUI is a simple interface object library.
 
-## How To Get Started
-
-AtomicUI can be installed via CocoaPods by adding "pod 'AtomicUI', git: 'https://github.com/WideEyeLabs/AtomicUI.git'" to your Podfile.
+####Installation
+Using [Carthage](https://github.com/Carthage/Carthage) add
+```shell
+github "wideeyelabs/AtomicUI"
+```
+to your Cartfile
 
 ### AtomSlideController
 
@@ -16,7 +19,6 @@ AtomicUI can be installed via CocoaPods by adding "pod 'AtomicUI', git: 'https:/
 id appDel = [[UIApplication sharedApplication] delegate];
 AtomSlideController *slide = [appDel slideController];
 [slide closeSlide];
-[slide startIndicator];
 
 [self performAsyncRequest:^()completion {
   [slide stopIndicator];

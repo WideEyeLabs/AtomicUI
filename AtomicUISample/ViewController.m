@@ -10,6 +10,8 @@
 #import "AtomSlideController.h"
 #import "AppDelegate.h"
 
+@import AtomicUI;
+
 @interface ViewController ()
 
 @end
@@ -24,6 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    MultiTextField *textField = [[MultiTextField alloc] initWithFrame:CGRectMake(0, 0, 200, 200) numberOfFields:3 borderColor:[UIColor redColor]];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     UIButton *openButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
     [openButton addTarget:self action:@selector(openSlide:) forControlEvents:UIControlEventTouchUpInside];
@@ -35,6 +39,8 @@
     [self.view layoutIfNeeded];
     openButton.titleLabel.text = @"HIIIII";
     openButton.backgroundColor = [UIColor greenColor];
+  
+  [self.view addSubview:textField];
     
     // Do any additional setup after loading the view, typically from a nib.
 }
